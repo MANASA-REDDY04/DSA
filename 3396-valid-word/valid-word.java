@@ -8,7 +8,8 @@ class Solution {
         word = word.toLowerCase();
         for (int i = 0; i < n; i++) {
             char ch = word.charAt(i);
-            if (!(Character.isLetter(ch) || Character.isDigit(ch))) return false;
+            if (!((ch >= 'a' && ch <= 'z') || (ch >= '0' && ch <= '9')))
+                return false;
             if (ch >= 'a' && ch <= 'z') {
                 if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
                     vowel = true;
