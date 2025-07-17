@@ -16,14 +16,18 @@ class Solution {
         ListNode dummy = new ListNode(-1);
         ListNode temp = dummy;
         for(int i = 0; i < n; i++){
-            if(lists[i] != null) pq.offer(lists[i]);
+            if(lists[i] != null){
+                temp.next = lists[i];
+            }
+            while(temp.next != null){
+                pq.offer(temp.next);
+                temp = temp.next;
+            }
         }
         temp = dummy;
         while(!pq.isEmpty()){
-            ListNode node = pq.poll();
-            temp.next = node;
+            temp.next = pq.poll();
             temp = temp.next;
-            if(node.next != null) pq.offer(node.next);
         }
         temp.next = null;
         return dummy.next;
