@@ -1,7 +1,6 @@
 class Solution {
     public boolean lemonadeChange(int[] bills) {
         int n = bills.length;
-        // Arrays.sort(bills);
         int fives = 0;
         int tens = 0;
         for(int i : bills){
@@ -21,7 +20,6 @@ class Solution {
                 }
                 else return false;
             }
-            System.out.println(fives);
         }
         return true;
     }
