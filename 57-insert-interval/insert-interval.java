@@ -21,7 +21,6 @@ class Solution {
              li.add(new int[]{intervals[i][0],intervals[i][1]});
             i++;
         }
-        System.out.println(li);
         int[][] ans = new int[li.size()][2];
         for(i = 0; i < li.size(); i++){
             ans[i][0] = li.get(i)[0];
