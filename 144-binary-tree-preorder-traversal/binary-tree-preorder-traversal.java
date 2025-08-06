@@ -17,14 +17,28 @@ class Solution {
     static List<Integer> ans;
     public List<Integer> preorderTraversal(TreeNode root) {
         ans = new ArrayList<>();
+        Stack<TreeNode> st = new Stack<>();
+        TreeNode curr = root;
         if(root == null) return ans;
-        preorder(root);
+        st.push(curr);
+        ans.add(curr.val);
+        while(!st.isEmpty()){
+            if(curr.left != null){
+                st.push(curr.left);
+                ans.add(curr.left.val);
+                curr = curr.left;
+            }
+            else{
+                while(!st.isEmpty() && st.peek().right == null) st.pop();
+                if(!st.isEmpty()){
+                TreeNode temp = st.pop();
+                curr = temp.right;
+                st.push(curr);
+                ans.add(curr.val);
+                }
+            }
+        }
         return ans;
     }
-    public void preorder(TreeNode root){
-        if(root == null) return;
-        ans.add(root.val);
-        preorder(root.left);
-        preorder(root.right);
-    }
+    
 }
