@@ -21,21 +21,14 @@ class Solution {
         TreeNode curr = root;
         if(root == null) return ans;
         st.push(curr);
-        ans.add(curr.val);
         while(!st.isEmpty()){
-            if(curr.left != null){
-                st.push(curr.left);
-                ans.add(curr.left.val);
-                curr = curr.left;
+            TreeNode temp = st.pop();
+            ans.add(temp.val);
+            if(temp.right != null){
+                st.push(temp.right);
             }
-            else{
-                while(!st.isEmpty() && st.peek().right == null) st.pop();
-                if(!st.isEmpty()){
-                TreeNode temp = st.pop();
-                curr = temp.right;
-                st.push(curr);
-                ans.add(curr.val);
-                }
+            if(temp.left != null){
+                st.push(temp.left);
             }
         }
         return ans;
