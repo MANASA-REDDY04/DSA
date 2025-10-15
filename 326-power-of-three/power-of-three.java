@@ -1,8 +1,8 @@
 class Solution {
     public boolean isPowerOfThree(int n) {
-        int maxi = (int)(Math.pow(3,19));
-        if(n <= 0) return false;
-        if(maxi % n == 0) return true;
-        return false; 
+        if(n < 3 && n != 1) return false;
+        if(n == 1) return true;
+        if(n % 3 != 0) return false;
+        return isPowerOfThree(n/3);
     }
 }
