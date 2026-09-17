@@ -6,7 +6,9 @@ class Solution {
         int j = 0;
         while(i < slen && j < tlen){
             char ch = s.charAt(i);
-            while(j < tlen && t.charAt(j) != ch) j++;
+            while(j < tlen && ch != t.charAt(j)){
+                j++;
+            }
             if(j < tlen && ch == t.charAt(j)){
                 i++;
                 j++;
