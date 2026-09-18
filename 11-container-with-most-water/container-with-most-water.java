@@ -8,8 +8,8 @@ class Solution {
             int minHeight = Math.min(height[i],height[j]);
             int width = j-i;
             maxArea = Math.max(maxArea, width*minHeight);
-            if(height[i] < height[j]) i++;
-            else j--;
+            while(i < j && height[i] <= minHeight) i++;
+            while(i < j && height[j] <= minHeight) j--;
         }
         return maxArea;
     }
